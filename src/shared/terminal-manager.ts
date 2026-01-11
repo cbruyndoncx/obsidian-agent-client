@@ -57,7 +57,7 @@ export class TerminalManager {
 			if (hasShellSyntax) {
 				// Use shell to execute the command
 				const shell =
-					Platform.isMacOS || Platform.isLinux
+					Platform.isMacOS || Platform.isLinux || (Platform.isWin && this.plugin.settings.windowsWslMode)
 						? "/bin/sh"
 						: "cmd.exe";
 				const shellFlag =
